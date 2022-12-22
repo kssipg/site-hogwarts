@@ -1,0 +1,1 @@
+export DB_URL=postgres://hogwarts_lyik_user:WylzxD8hdbDQeT2x80HynSMmom61cm8M@dpg-cei12rla499fabgd5ib0-a.oregon-postgres.render.com/hogwarts_lyik
