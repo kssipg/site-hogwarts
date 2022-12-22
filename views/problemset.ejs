@@ -4,34 +4,10 @@
 		<meta charset="utf-8">
 	</head>
 	<body>
-		<h1>Факультеты</h1>
-		<ul>
-			<% for(let i = 0; i < faculties.length; i++){%>
-			<li><%= faculties[i].id %>  <%= faculties[i].название %></li>
-			<% } %>
-		</ul>
-		<h1>Роли</h1>
-		<ul>
-			<% for(let i = 0; i < roles.length; i++){%>
-			<li><%= roles[i].id %>  <%= roles[i].название %></li>
-			<% } %>
-		</ul>
-		<h1>Студенты</h1>
-		<ul>
-			<% for(let i = 0; i < students.length; i++){%>
-			<li><%= students[i].id %>  <%= students[i].фамилия %> <%= students[i].имя %> <%= students[i].факультет %> <%= students[i].роль %></li>
-			<% } %>
-		</ul>
 		<h1>Задания</h1>
 		<ul>
-			<% for(let i = 0; i < problems.length; i++){%>
-			<li><%= problems[i].id %>  <%= problems[i].название %></li>
-			<% } %>
-		</ul>
-		<h1>Журнал</h1>
-		<ul>
-			<% for(let i = 0; i < grades.length; i++){%>
-			<li><%= grades[i].фамилия %>  <%= grades[i].задание %> <%= grades[i].оценка %></li>
+			<% for(let i = 0; i < rows.length; i++){%>
+			<li><%= rows[i].id %>  <%= rows[i].название %></li>
 			<% } %>
 		</ul>
 	</body>
