@@ -1,0 +1,49 @@
+SQL
+\d - список таблиц
+drop table tablename;
+
+create table факультет(id serial primary key, название text);
+insert into факультет(название) values ('Гриффиндор'), ('Слизерин'), ('Когтевран'), ('Пуффендуй');
+select * from факультет;
+
+create table роль(id serial primary key, название text);
+insert into роль(название) values ('Профессор'), ('Ученик');
+select * from роль;
+
+create table студент(
+id serial primary key,
+фамилия text,
+имя text,
+факультет_id int,
+роль_id int,
+foreign key(факультет_id) references факультет(id),
+foreign key(роль_id) references роль(id));
+
+insert into студент(фамилия, имя, факультет_id, роль_id)
+values ('Поттер', 'Гарри', 1, 2),
+('Грейнджер', 'Гермиона', 1, 2),
+('Малфой', 'Драко', 2, 2),
+('Снейп', 'Северус', 2, 1);
+
+select * from студент;
+select фамилия, имя, факультет.название as факультет, роль.название as роль from студент, факультет, роль
+where студент.факультет_id = факультет.id and студент.роль_id = роль.id;
+
+create table задание(id serial primary key, название text);
+insert into задание(название) values ('Вингардиум левиосА'), ('Напиток живой смерти');
+select * from задание;
+
+create table журнал(
+студент_id int,
+задание_id int,
+оценка int,
+primary key(студент_id, задание_id),
+foreign key(студент_id) references студент(id),
+foreign key(задание_id) references задание(id));
+
+insert into журнал(студент_id, задание_id, оценка)
+values (1, 1, 5), (1, 2, 5), (2, 1, 5), (3, 1, 4), (3, 2, 3);
+
+select * from журнал;
+select студент.фамилия, задание.название as задание, оценка from журнал, студент, задание
+where журнал.задание_id = задание.id and журнал.студент_id = студент.id;
