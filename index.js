@@ -1,5 +1,5 @@
-const express = require('express')
-const {pool} = require('./pgConfig')
+import express from 'express'
+import {pool} from './pgConfig.js'
 const port = process.env.PORT || 8080
 const app = express()
 
